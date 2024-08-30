@@ -45,7 +45,7 @@ const Modal = ({ onClose, movieId }) => {
 
       reader.readAsDataURL(file);
 
-      console.log(reader.result, "axaxaxax");
+      console.log(reader.result);
     }
   };
 
