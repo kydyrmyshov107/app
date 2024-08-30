@@ -4,7 +4,7 @@ export const getMovies = createAsyncThunk(
   "movies/getMovies",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await fetch("https://aa3deb8b1c41d863.mokky.dev/movie");
+      const response = await fetch("https://440c65a9db4d8fc3.mokky.dev/movie");
       const data = await response.json();
 
       return data;
@@ -19,7 +19,7 @@ export const getMovie = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       const response = await fetch(
-        "https://aa3deb8b1c41d863.mokky.dev/movie/" + id
+        "https://440c65a9db4d8fc3.mokky.dev/movie/" + id
       );
       const data = await response.json();
 
@@ -34,7 +34,7 @@ export const addMovie = createAsyncThunk(
   "movies/addMovie",
   async (obj, { rejectWithValue, dispatch }) => {
     try {
-      await fetch(`https://aa3deb8b1c41d863.mokky.dev/movie`, {
+      await fetch(`https://440c65a9db4d8fc3.mokky.dev/movie`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -53,7 +53,7 @@ export const updateMovie = createAsyncThunk(
   "movies/updateMovie",
   async ({ movieId, formData }, { rejectWithValue, dispatch }) => {
     try {
-      await fetch(`https://aa3deb8b1c41d863.mokky.dev/movie/${movieId}`, {
+      await fetch(`https://440c65a9db4d8fc3.mokky.dev/movie/${movieId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -71,7 +71,7 @@ export const deleteMovie = createAsyncThunk(
   "movies/deleteMovie",
   async (id, { rejectWithValue, dispatch }) => {
     try {
-      await fetch(`https://aa3deb8b1c41d863.mokky.dev/movie/${id}`, {
+      await fetch(`https://440c65a9db4d8fc3.mokky.dev/movie/${id}`, {
         method: "DELETE",
       });
       await dispatch(getMovies());

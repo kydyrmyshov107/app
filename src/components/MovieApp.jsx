@@ -8,6 +8,7 @@ import Modal from "./Modal";
 const MovieApp = () => {
   const [openEditModal, setOpenEditModal] = useState(false);
   const [editingMovieId, setEditingMovieId] = useState(null);
+  const [isCompleted, setIsCompleted] = useState(false);
   const [isNight, setIsNight] = useState(true);
 
   const { movies } = useSelector((state) => state.movies);
@@ -29,7 +30,10 @@ const MovieApp = () => {
 
   const deleteHandler = (id) => dispatch(deleteMovie(id));
 
-  const toggleThemeHandler = () => setIsNight((prev) => !prev);
+  const toggleThemeHandler = () => {
+    setIsNight((prev) => !prev);
+    setIsCompleted((prev) => !prev);
+  };
 
   return (
     <ThemeProvider theme={isNight ? nightTheme : dayTheme}>
@@ -45,8 +49,16 @@ const MovieApp = () => {
             <MovieCard key={movie.id}>
               <MovieImage src={movie.image} />
               <MovieContent>
-                <MovieTitle>{movie.title}</MovieTitle>
-                <MovieRating>{movie.rating}</MovieRating>
+                {isCompleted ? (
+                  <IsMovieTitle>{movie.title}</IsMovieTitle>
+                ) : (
+                  <MovieTitle>{movie.title}</MovieTitle>
+                )}
+                {isCompleted ? (
+                  <IsMovieRating>{movie.rating}</IsMovieRating>
+                ) : (
+                  <MovieRating>{movie.rating}</MovieRating>
+                )}
               </MovieContent>
               <ButtonsContainer>
                 <Button onClick={() => deleteHandler(movie.id)}>Delete</Button>
@@ -133,8 +145,20 @@ const MovieTitle = styled.h3`
   margin-bottom: 8px;
 `;
 
+const IsMovieTitle = styled.h3`
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333333;
+`;
+
 const MovieRating = styled.p`
   font-size: 14px;
+`;
+
+const IsMovieRating = styled.p`
+  font-size: 14px;
+  color: #333333;
 `;
 
 const ButtonsContainer = styled.div`
