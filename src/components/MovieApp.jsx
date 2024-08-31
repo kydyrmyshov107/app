@@ -93,7 +93,7 @@ const Container = styled.div`
 const ColorBack = styled.div`
   position: absolute;
   top: 0px;
-  left: 1720px;
+  left: 1722px;
 `;
 
 const dayTheme = {

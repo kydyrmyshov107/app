@@ -1,9 +1,9 @@
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
 import { IoCloudUpload } from "react-icons/io5";
 import { addMovie, getMovie, updateMovie } from "../store/slice/movieThunk";
-import { useDispatch, useSelector } from "react-redux";
 
 const Modal = ({ onClose, movieId }) => {
   const { movie } = useSelector((state) => state.movies);
