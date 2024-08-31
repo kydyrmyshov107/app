@@ -1,11 +1,7 @@
 import MovieApp from "../components/MovieApp";
 
 const Movie = () => {
-  return (
-    <>
-      <MovieApp />
-    </>
-  );
+  return <MovieApp />;
 };
 
 export default Movie;

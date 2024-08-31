@@ -1,11 +1,7 @@
 import Movie from "./layout/Movie";
 
 const App = () => {
-  return (
-    <>
-      <Movie />
-    </>
-  );
+  return <Movie />;
 };
 
 export default App;
